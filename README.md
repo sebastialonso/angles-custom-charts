@@ -4,9 +4,11 @@ Extra Charts contains some feature-specific extensions for some of the standard 
 
 So far it contains support for adding vertical and horizontal lines in a Line Chart.
 
+See demos [http://sebastialonso.github.io/angles-custom-charts/#/](here)
 ## Install
 
-`bower install --save angular-custom-charts`
+`bower install --save angles-custom-charts`
+
 ## Examples
 
 ### Vertical lines
@@ -46,9 +48,9 @@ $scope.myChartOptions.hlines = [
 
 ### Directive
 
-For the `ManyLines' chart, use the `manylineschart` directive, just as any other Angles directive.
+For the `ManyLines` chart, use the `manylineschart` directive, just as any other Angles directive.
 If you don't supply the lines object in the options, a regular Line Chart will be displayed.
 
 ~~~
-<canvas manylineschart options="options" data="data" width="900" height="300"></canvas>
+<canvas manylineschart options="myChartOptions" data="data" width="900" height="300"></canvas>
 ~~~
