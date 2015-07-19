@@ -4,7 +4,7 @@ Extra Charts contains some feature-specific extensions for some of the standard 
 
 So far it contains support for adding vertical and horizontal lines in a Line Chart.
 
-See demos [http://sebastialonso.github.io/angles-custom-charts/#/](here)
+See demos [here](http://sebastialonso.github.io/angles-custom-charts/#/).
 ## Install
 
 `bower install --save angles-custom-charts`
