@@ -20,9 +20,6 @@
     "tests",
     "angles-custom-charts.coffee"
   ],
-  "dependencies": {
-    "angles": "1.0.1-beta"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/sebastialonso/angles-custom-charts.git"
