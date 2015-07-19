@@ -27,7 +27,7 @@ Chart.types.Line.extend({
       }
     }
     if (this.options.hlines !== void 0 && this.options.hlines.length > 0) {
-      ref1 = this.options.hvlines;
+      ref1 = this.options.hlines;
       for (j = 0, len1 = ref1.length; j < len1; j++) {
         line = ref1[j];
         if (this.scale.min < line.lineAt && this.scale.max > line.lineAt) {
