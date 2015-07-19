@@ -6,7 +6,7 @@ Chart.types.Line.extend
     return
   draw: ->    
     Chart.types.Line::draw.apply this, arguments
-    if @options.vlines.length > 0 
+    if @options.vlines != undefined and @options.vlines.length > 0 
 
       #Vertical lines
       for line in @options.vlines
@@ -25,21 +25,21 @@ Chart.types.Line.extend
 
           # Write text on top of line
           @chart.ctx.textAlign = 'center'  
+          @chart.ctx.fillStyle = line.lineColor || '#666'
           @chart.ctx.fillText line.lineText, point.x, scale.startPoint + 12
     
     #Horizontal lines
-    if @options.hlines.length > 0
+    if @options.hlines != undefined and @options.hlines.length > 0
       for line in @options.hvlines
         if @scale.min < line.lineAt and @scale.max > line.lineAt
           scale = @scale 
 
           delta = (scale.endPoint - scale.startPoint) / (scale.max - scale.min)
-          console.log delta
           @chart.ctx.beginPath()
           @chart.ctx.moveTo scale.xScalePaddingLeft, scale.endPoint - delta * line.lineAt
           @chart.ctx.lineTo scale.width - scale.xScalePaddingRight, scale.endPoint - delta * line.lineAt
-          @chart.ctx.lineWidth = line.lineWidth
-          @chart.ctx.strokeStyle = line.lineColor
+          @chart.ctx.lineWidth = line.lineWidth || 1
+          @chart.ctx.strokeStyle = line.lineColor || '#666'
           @chart.ctx.stroke()
     return
     
