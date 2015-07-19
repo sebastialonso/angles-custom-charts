@@ -30,7 +30,7 @@ Chart.types.Line.extend
     
     #Horizontal lines
     if @options.hlines != undefined and @options.hlines.length > 0
-      for line in @options.hvlines
+      for line in @options.hlines
         if @scale.min < line.lineAt and @scale.max > line.lineAt
           scale = @scale 
 
