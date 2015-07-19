@@ -1,6 +1,6 @@
 # Extra Charts for Angles, Charts.js in Angular
 
-Extra Charts contains some feature-specific extensions for some of the standard charts.
+Custom Charts contains some feature-specific extensions for some of the standard charts.
 
 So far it contains support for adding vertical lines in a Line Chart, where you can also specify the dataset the line is to appear, its color, width and text.
 
