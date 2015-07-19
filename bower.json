@@ -20,7 +20,7 @@
     "tests",
     "angles-custom-charts.coffee"
   ],
-  "dependecies": {
+  "dependencies": {
     "angles": "1.0.1-beta"
   },
   "repository": {
