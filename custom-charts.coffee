@@ -6,8 +6,10 @@ Chart.types.Line.extend
     return
   draw: ->    
     Chart.types.Line::draw.apply this, arguments
-    if @options.lines.length > 0 
-      for line in @options.lines
+    if @options.vlines.length > 0 
+
+      #Vertical lines
+      for line in @options.vlines
         if line.lineAtIndex  > 0 and line.lineAtChart != undefined
 
           # Get the required x coordinate at the correct dataset
@@ -24,8 +26,23 @@ Chart.types.Line.extend
           # Write text on top of line
           @chart.ctx.textAlign = 'center'  
           @chart.ctx.fillText line.lineText, point.x, scale.startPoint + 12
-      return
+    
+    #Horizontal lines
+    if @options.hlines.length > 0
+      for line in @options.hvlines
+        if @scale.min < line.lineAt and @scale.max > line.lineAt
+          scale = @scale 
+
+          delta = (scale.endPoint - scale.startPoint) / (scale.max - scale.min)
+          console.log delta
+          @chart.ctx.beginPath()
+          @chart.ctx.moveTo scale.xScalePaddingLeft, scale.endPoint - delta * line.lineAt
+          @chart.ctx.lineTo scale.width - scale.xScalePaddingRight, scale.endPoint - delta * line.lineAt
+          @chart.ctx.lineWidth = line.lineWidth
+          @chart.ctx.strokeStyle = line.lineColor
+          @chart.ctx.stroke()
     return
+    
 
 angles = angular.module 'angles'
 angles.directive 'manylineschart', ->
