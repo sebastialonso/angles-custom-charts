@@ -1,0 +1,31 @@
+{
+  "name": "angles-custom-charts",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sebastialonso/angles-custom-charts",
+  "authors": [
+    "Sebastian Gonzalez <sebagonz91@gmail.com>"
+  ],
+  "description": "Directives for custom charts using Angles",
+  "main": "angles-custom-charts.js",
+  "keywords": [
+    "charts",
+    "angles"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "angles-custom-charts.coffee"
+  ],
+  "dependecies": {
+    "angles": "1.0.1-beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sebastialonso/angles-custom-charts.git"
+  }
+
+}
