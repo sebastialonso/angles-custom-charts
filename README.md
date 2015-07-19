@@ -4,7 +4,9 @@ Extra Charts contains some feature-specific extensions for some of the standard 
 
 So far it contains support for adding vertical and horizontal lines in a Line Chart.
 
+## Install
 
+`bower install --save angular-custom-charts`
 ## Examples
 
 ### Vertical lines
