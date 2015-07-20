@@ -45,8 +45,37 @@ Chart.types.Line.extend({
   }
 });
 
+Chart.types.Line.extend({
+  name: 'Overlay',
+  initialize: function(data) {
+    Chart.types.Line.prototype.initialize.apply(this, arguments);
+  },
+  draw: function() {
+    var bottomPoint, delta, i, len, overlay, ref, scale, topPoint;
+    Chart.types.Line.prototype.draw.apply(this, arguments);
+    if (this.options.overlays !== void 0 && this.options.overlays.length > 0) {
+      ref = this.options.overlays;
+      for (i = 0, len = ref.length; i < len; i++) {
+        overlay = ref[i];
+        scale = this.scale;
+        delta = (scale.endPoint - scale.startPoint) / (scale.max - scale.min);
+        bottomPoint = scale.endPoint - delta * overlay.bottomLeft;
+        topPoint = scale.endPoint - delta * overlay.topLeft;
+        this.chart.ctx.beginPath();
+        this.chart.ctx.rect(scale.xScalePaddingLeft, bottomPoint, scale.width - scale.xScalePaddingLeft, topPoint - bottomPoint);
+        this.chart.ctx.fillStyle = overlay.color || 'rgba(52,152,219, 0.3)';
+        this.chart.ctx.fill();
+      }
+    }
+  }
+});
+
 angles = angular.module('angles');
 
 angles.directive('manylineschart', function() {
   return angles.chart('ManyLines');
+});
+
+angles.directive('overlaychart', function() {
+  return angles.chart('Overlay');
 });

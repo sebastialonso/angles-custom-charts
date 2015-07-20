@@ -11,7 +11,8 @@ See demos [here](http://sebastialonso.github.io/angles-custom-charts/#/).
 
 ## Examples
 
-### Vertical lines
+### ManyLines
+#### Vertical lines
 
 You must specify all of these in the options object as a sub-object `vlines`:
 
@@ -29,7 +30,7 @@ $scope.myChartOptions.vlines = [
 
 Negatives values for `lineAtIndex` or absence of `lineAtChart` will result in a regular LineChart.
 
-### Horizontal lines
+#### Horizontal lines
 
 You must specify all of these in the options object as a sub-object `vlines`:
 
@@ -45,12 +46,33 @@ $scope.myChartOptions.hlines = [
 
 `lineAt` must be a value between `max` and `min`, boundary values for the Y axis. Otherwise, the line will not be drawn.
 
-
-### Directive
+#### Directive
 
 For the `ManyLines` chart, use the `manylineschart` directive, just as any other Angles directive.
 If you don't supply the lines object in the options, a regular Line Chart will be displayed.
 
 ~~~
 <canvas manylineschart options="myChartOptions" data="data" width="900" height="300"></canvas>
+~~~
+
+### Overlay
+
+**Full-width** wide rectangle over the chart. Great for specifying special areas or critical regions.
+
+You must specify all of these in the options object as a sub-object `overlays`:
+
+~~~ coffeescript
+$scope.myChartOptions.overlays = [
+  {
+    bottomLeft: 0 # Point of the Y axis for the bottom left corner of the rectangle (required)
+    topLeft: 10 # Point of the Y axis for the top left corner of the rectangle (required)
+    color: 'rgba(52,152,219, 0.3)' # Fill color of the overlay (optional). Default is rgba(52,152,219, 0.3)
+  } 
+]
+~~~
+
+### Directive
+
+~~~
+<canvas overlaychart options="myChartOptions" data="data" width="900" height="300"></canvas>
 ~~~
